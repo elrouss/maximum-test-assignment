@@ -1,0 +1,34 @@
+@mixin uploadFont(
+  $file,
+  $family,
+  $weight: 400,
+  $format-1,
+  $format-2,
+  $format-3,
+  $format-3-extension
+) {
+  @font-face {
+    font-family: $family;
+    font-weight: $weight;
+    font-style: normal;
+    font-display: swap;
+    src: url('../public/assets/fonts/#{$file}.#{$format-1}')
+        format('#{$format-1}'),
+      url('../public/assets/fonts/#{$file}.#{$format-2}') format('#{$format-2}'),
+      url('../public/assets/fonts/#{$file}.#{$format-3}') format('#{$format-3}');
+  }
+}
+
+@mixin font(
+  $family: 'Tactic Sans',
+  $style: normal,
+  $size,
+  $weight: 400,
+  $letter-spacing: 0.9px
+) {
+  font-family: ($family, 'Arial', 'Helvetica', sans-serif);
+  font-style: $style;
+  font-size: $size;
+  font-weight: $weight;
+  letter-spacing: $letter-spacing;
+}
