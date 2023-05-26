@@ -1,0 +1,24 @@
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/fonts.scss';
+@import '../../styles/mixins.scss';
+
+.section {
+  padding-top: 100px;
+}
+
+.heading {
+  @include font(
+    $family: $font-family-secondary,
+    $size: $font-size-heading-1,
+    $letter-spacing: 0.12rem
+  );
+  line-height: 140%;
+  color: $color-main-1;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 33.7% 62.3%;
+  justify-content: space-between;
+  padding-top: 63px;
+}
