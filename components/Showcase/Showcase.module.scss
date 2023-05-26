@@ -17,5 +17,8 @@
 }
 
 .content {
+  display: grid;
+  grid-template-columns: 33.7% 62.3%;
+  justify-content: space-between;
   padding-top: 63px;
 }

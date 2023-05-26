@@ -1,0 +1,46 @@
+@import '../../../../styles/variables/colors.scss';
+@import '../../../../styles/variables/fonts.scss';
+@import '../../../../styles/mixins.scss';
+
+.card {
+  width: 440px;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.description {
+  padding: 15px 0 28px;
+}
+
+.heading,
+.subheading {
+  @include font($family: $font-family-secondary, $size: $font-size-heading-2, $letter-spacing: 0.12rem);
+  line-height: 140%;
+  color: $color-main-1;
+}
+
+.details {
+  padding-top: 11px;
+
+  @include font($size: $font-size-addition);
+  line-height: 140%;
+  color: $color-element-inactive;
+}
+
+.btn {
+  width: 100%;
+  padding: 23px 127px;
+
+  @include font($family: $font-family-tertiary, $size: $font-size-addition);
+  line-height: 120%;
+  color: $color-main-2;
+
+  background-color: $color-promo-primary;
+  border-radius: 8px;
+}
+
+// .link {
+// }

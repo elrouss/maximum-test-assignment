@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import logo from '../../public/assets/icons/logo.svg';
 
-import ROUTES from '../../utils/constants';
+import { ROUTES } from '../../utils/constants';
 
 function Logo() {
   return (
