@@ -1,0 +1,21 @@
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/fonts.scss';
+@import '../../styles/mixins.scss';
+
+.section {
+  padding-top: 100px;
+}
+
+.heading {
+  @include font(
+    $family: $font-family-secondary,
+    $size: $font-size-heading-1,
+    $letter-spacing: 0.12rem
+  );
+  line-height: 140%;
+  color: $color-main-1;
+}
+
+.content {
+  padding-top: 63px;
+}
