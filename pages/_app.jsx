@@ -46,7 +46,7 @@ function App({ Component, pageProps }) {
         <link rel="manifest" href="../public/assets/favicon/site.webmanifest" />
       </Head>
       <Layout>
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </Layout>
     </>
   );

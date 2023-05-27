@@ -1,0 +1,19 @@
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/fonts.scss';
+@import '../../styles/variables/colors.scss';
+@import '../../styles/mixins.scss';
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 440px;
+  height: 80px;
+
+  @include font($family: $font-family-tertiary, $size: $font-size-addition);
+  line-height: 120%;
+  color: $color-main-2;
+
+  background-color: $color-promo-primary;
+  border-radius: 8px;
+}
