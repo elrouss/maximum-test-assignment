@@ -1,0 +1,52 @@
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/general.scss';
+@import '../../styles/mixins.scss';
+
+.section {
+  background: linear-gradient(
+    to right,
+    $color-accent-gradient-1,
+    $color-accent-gradient-2
+  );
+}
+
+.wrapper {
+  position: relative;
+
+  max-width: $wrapper-desktop-l;
+}
+
+.content {
+  position: relative;
+  z-index: 1000;
+
+  max-width: 710px;
+  padding: 151px 0 272px 219px;
+}
+
+.heading {
+  max-width: 710px;
+
+  @include font(
+    $family: $font-family-secondary,
+    $size: $font-size-heading-1,
+    $letter-spacing: 0.12rem
+  );
+  line-height: 140%;
+  color: $color-main-2;
+}
+
+.subheading {
+  max-width: 477px;
+  padding: 60px 0 57px;
+
+  @include font($size: $font-size-addition);
+  line-height: 140%;
+  color: $color-main-2;
+}
+
+.promo {
+  position: absolute;
+  right: -250px;
+  bottom: 60px;
+}

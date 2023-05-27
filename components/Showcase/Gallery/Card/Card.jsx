@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
 import Image from 'next/image';
-// import Link from 'next/link';
+import Link from 'next/link';
+
+import ButtonPromo from '../../../../components/ButtonPromo/ButtonPromo';
 
 import styles from './Card.module.scss';
 
 function Card({
+  id,
   brandName,
   modelName,
   equipmentName,
@@ -14,7 +17,6 @@ function Card({
   image,
 }) {
   return (
-    // <Link className={styles.link}>
     <article className={styles.card}>
       <Image
         className={styles.image}
@@ -31,11 +33,8 @@ function Card({
           ','
         )} / ${enginePower} Л.С. / ${engineTransmission}`}</p>
       </div>
-      <button className={styles.btn} type="button">
-        Подробнее
-      </button>
+      <ButtonPromo text="Подробнее" href={`/${id}`} />
     </article>
-    // </Link>
   );
 }
 

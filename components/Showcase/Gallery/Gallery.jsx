@@ -8,7 +8,7 @@ function Gallery({ cars }) {
     <div className={styles.gallery}>
       {cars.map((car) => {
         const {
-          id,
+          _id,
           feedData: {
             brandName,
             modelName,
@@ -20,7 +20,8 @@ function Gallery({ cars }) {
 
         return (
           <Card
-            key={id}
+            key={_id}
+            id={_id}
             brandName={brandName}
             modelName={modelName}
             equipmentName={equipmentName}

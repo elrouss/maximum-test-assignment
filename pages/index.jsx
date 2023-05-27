@@ -18,6 +18,7 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ cars }) {
+  console.log(cars)
   return (
     <main>
       <Showcase cars={cars} />;
