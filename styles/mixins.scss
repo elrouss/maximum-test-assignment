@@ -1,11 +1,14 @@
+@import './variables/colors.scss';
+@import './variables/fonts.scss';
+
 @mixin uploadFont(
   $file,
-  $family,
+  $family: $font-family-main,
   $weight: 400,
-  $format-1,
-  $format-2,
-  $format-3,
-  $format-3-extension
+  $format-1: 'woff2',
+  $format-2: 'woff',
+  $format-3: 'ttf',
+  $format-3-extension: 'truetype'
 ) {
   @font-face {
     font-family: $family;
@@ -20,15 +23,19 @@
 }
 
 @mixin font(
-  $family: 'Tactic Sans',
+  $family: 'Tactic Sans Medium',
   $style: normal,
   $size,
   $weight: 400,
-  $letter-spacing: 0.9px
+  $letter-spacing: 0.8px
 ) {
   font-family: ($family, 'Arial', 'Helvetica', sans-serif);
   font-style: $style;
   font-size: $size;
   font-weight: $weight;
   letter-spacing: $letter-spacing;
+}
+
+@mixin border-bottom($width: 2px, $style: solid, $color) {
+  border-bottom: $width $style $color;
 }

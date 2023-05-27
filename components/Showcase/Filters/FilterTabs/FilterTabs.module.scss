@@ -1,0 +1,24 @@
+@import '../../../../styles/variables/fonts.scss';
+@import '../../../../styles/placeholders.scss';
+@import '../../../../styles/mixins.scss';
+
+.filterGroup {
+  margin-top: 30px;
+
+  @include border-bottom($color: $color-element-inactive);
+}
+
+.heading {
+  @include font(
+    $size: $font-size-addition,
+    $letter-spacing: 0.06rem
+  );
+}
+
+.filterTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  max-width: 441px;
+  padding: 25px 0 30px;
+}
