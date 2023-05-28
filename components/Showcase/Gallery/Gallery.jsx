@@ -5,8 +5,9 @@ import Card from './Card/Card';
 
 import styles from './Gallery.module.scss';
 
-function Gallery({ cars, selectedFilters }) {
+function Gallery({ cars, selectedFilters, isLoading }) {
   const [carsFiltered, setCarsFiltered] = useState(cars);
+  console.log(isLoading);
 
   useEffect(() => {
     const res = [];
@@ -75,33 +76,35 @@ function Gallery({ cars, selectedFilters }) {
     <div
       className={carsFiltered.length ? styles.gallery : styles.galleryNotFound}
     >
-      {(!carsFiltered.length && 'По вашему запросу ничего не найдено') ||
-        carsFiltered.map((car) => {
-          const {
-            _id,
-            feedData: {
-              brandName,
-              modelName,
-              equipmentName,
-              engine: { engineCapacity, enginePower, engineTransmission },
-            },
-            photobank: { imgs },
-          } = car;
+      {isLoading
+        ? 'Подождите...'
+        : (!carsFiltered.length && 'По вашему запросу ничего не найдено') ||
+          carsFiltered.map((car) => {
+            const {
+              _id,
+              feedData: {
+                brandName,
+                modelName,
+                equipmentName,
+                engine: { engineCapacity, enginePower, engineTransmission },
+              },
+              photobank: { imgs },
+            } = car;
 
-          return (
-            <Card
-              key={_id}
-              id={_id}
-              brandName={brandName}
-              modelName={modelName}
-              equipmentName={equipmentName}
-              engineCapacity={engineCapacity}
-              enginePower={enginePower}
-              engineTransmission={engineTransmission}
-              image={imgs[0].urlThumb}
-            />
-          );
-        })}
+            return (
+              <Card
+                key={_id}
+                id={_id}
+                brandName={brandName}
+                modelName={modelName}
+                equipmentName={equipmentName}
+                engineCapacity={engineCapacity}
+                enginePower={enginePower}
+                engineTransmission={engineTransmission}
+                image={imgs[0].urlThumb}
+              />
+            );
+          })}
     </div>
   );
 }

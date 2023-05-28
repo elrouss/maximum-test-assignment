@@ -9,6 +9,7 @@ import Gallery from './Gallery/Gallery';
 import styles from './Showcase.module.scss';
 
 function Showcase({ list }) {
+  const [isLoading, setLoading] = useState(false);
   const [selectedBrandCar, setSelectedBrandCar] = useState('Chery');
   const [selectedFilters, setSelectedFilters] = useState({
     engineCapacity: [],
@@ -60,6 +61,8 @@ function Showcase({ list }) {
 
   const handleBrandCar = async () => {
     try {
+      setLoading(true);
+
       const response = await fetch(`${URLS.SHOWCASE}${selectedBrandCar}`);
       const data = await response.json();
 
@@ -70,6 +73,8 @@ function Showcase({ list }) {
       return console.error(
         `Ошибка в процессе запроса данных на сервере: ${err}`
       );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -88,7 +93,11 @@ function Showcase({ list }) {
             onFilter={filterCars}
             onSelectedFilters={setSelectedFilters}
           />
-          <Gallery cars={cars} selectedFilters={selectedFilters} />
+          <Gallery
+            cars={cars}
+            selectedFilters={selectedFilters}
+            isLoading={isLoading}
+          />
         </div>
       </div>
     </section>
