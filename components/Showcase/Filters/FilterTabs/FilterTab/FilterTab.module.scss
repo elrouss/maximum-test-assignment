@@ -1,5 +1,6 @@
 @import '../../../../../styles/variables/colors.scss';
 @import '../../../../../styles/variables/fonts.scss';
+@import '../../../../../styles//variables/media-queries.scss';
 @import '../../../../../styles/placeholders.scss';
 @import '../../../../../styles/mixins.scss';
 
@@ -12,7 +13,25 @@
 
   @extend %btn-filter;
 
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    padding: 3px 8px;
+
+    font-size: $font-family-main-mobile-s;
+    color: rgba(154, 167, 173, 0.3);
+
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: rgba(154, 167, 173, 0.3);
+  }
+
   &Selected {
     background-color: $color-element-active;
+
+    @media screen and (max-width: calc($media-tablet - 1px)) {
+      color: $color-main-1;
+
+      background-color: transparent;
+      border-color: $color-main-1;
+    }
   }
 }

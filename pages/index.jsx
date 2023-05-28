@@ -4,8 +4,10 @@ import Showcase from '../components/Showcase/Showcase';
 import { URLS } from '../utils/constants';
 
 export const getServerSideProps = async () => {
+  const { SHOWCASE, SELECTED_BRAND_NAME } = URLS;
+
   try {
-    const response = await fetch(`${URLS.SHOWCASE}Chery`);
+    const response = await fetch(`${SHOWCASE}${SELECTED_BRAND_NAME}`);
     const data = await response.json();
 
     if (!data) {
@@ -27,7 +29,7 @@ export const getServerSideProps = async () => {
 export default function HomePage({ data: { list } }) {
   return (
     <main>
-      <Showcase list={list} />;
+      <Showcase list={list} />
     </main>
   );
 }

@@ -5,9 +5,10 @@ import { URLS } from '../utils/constants';
 
 export const getServerSideProps = async (context) => {
   const { id } = context.params;
+  const { SELECTED_BRAND_NAME, SHOWCASE } = URLS;
 
   try {
-    const response = await fetch(`${URLS.SHOWCASE}Chery`);
+    const response = await fetch(`${SHOWCASE}${SELECTED_BRAND_NAME}`);
     const data = await response.json();
 
     if (!data) {
@@ -27,6 +28,7 @@ export const getServerSideProps = async (context) => {
 };
 
 function Info({ cars: { list }, id }) {
+  console.log(URLS.SELECTED_BRAND_NAME);
   let car = {};
 
   list.find((item) => {

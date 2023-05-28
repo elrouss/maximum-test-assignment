@@ -1,5 +1,6 @@
 @import '../../styles/variables/colors.scss';
 @import '../../styles/variables/fonts.scss';
+@import '../../styles/variables/media-queries.scss';
 @import '../../styles/mixins.scss';
 
 .header {
@@ -11,8 +12,11 @@
   column-gap: 20px;
   align-items: center;
   max-width: 520px;
-  min-height: 68px;
   padding: 20px 0;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    padding: 9px 0 13px;
+  }
 }
 
 .heading {
@@ -21,14 +25,20 @@
   @include font($size: $font-size-main);
   line-height: 150%;
   color: $color-main-2;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    font-size: $font-size-main-mobile;
+    line-height: 150%;
+    letter-spacing: 0.05rem;
+  }
 }
 
 .line {
   height: 68px;
 
   border-left: 2px solid $color-main-2;
-}
 
-.extraSpace {
-  padding-left: 11px;
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    height: 23px;
+  }
 }

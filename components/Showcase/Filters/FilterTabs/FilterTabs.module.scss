@@ -1,4 +1,5 @@
 @import '../../../../styles/variables/fonts.scss';
+@import '../../../../styles/variables/media-queries.scss';
 @import '../../../../styles/placeholders.scss';
 @import '../../../../styles/mixins.scss';
 
@@ -6,13 +7,16 @@
   margin-top: 30px;
 
   @include border-bottom($color: $color-element-inactive);
+
+  @media screen and (max-width: calc($media-desktop-s - 1px)) {
+    margin-top: 0;
+
+    border-bottom: none;
+  }
 }
 
 .heading {
-  @include font(
-    $size: $font-size-addition,
-    $letter-spacing: 0.06rem
-  );
+  @include font($size: $font-size-addition, $letter-spacing: 0.06rem);
 }
 
 .filterTabs {
@@ -21,4 +25,15 @@
   gap: 10px 10px;
   max-width: 441px;
   padding: 25px 0 30px;
+
+  @media screen and (max-width: calc($media-desktop-s - 1px)) {
+    padding: 0;
+  }
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    gap: 4px 4.5px;
+    max-width: 285px;
+    padding-bottom: 10px;
+    padding-left: 7px;
+  }
 }

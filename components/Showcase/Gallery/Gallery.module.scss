@@ -1,4 +1,5 @@
 @import '../../../styles/variables/fonts.scss';
+@import '../../../styles/variables/media-queries.scss';
 
 .gallery {
   display: grid;
@@ -7,11 +8,26 @@
   justify-items: center;
   max-width: 922px;
 
+  @media screen and (max-width: calc($media-desktop-m - 1px)) {
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    padding-top: 30px;
+  }
+
   &NotFound {
     display: flex;
     justify-content: center;
     align-items: center;
 
     font-size: $font-size-addition;
+    text-align: center;
+
+    @media screen and (max-width: calc($media-desktop-m - 1px)) {
+      font-size: calc(
+        1.4rem + (14 + 14 * 0.7) * (100vw - $media-mobile-s) / 1279
+      );
+    }
   }
 }

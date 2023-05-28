@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './FilterTab.module.scss';
 
 function FilterTab({ name, onFilter }) {

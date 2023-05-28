@@ -31,7 +31,11 @@ function Card({
           ','
         )} / ${enginePower} Л.С. / ${engineTransmission}`}</p>
       </div>
-      <ButtonPromo text="Подробнее" href={`/${id}`} />
+      <ButtonPromo
+        classSelector={styles.btnCard}
+        text="Подробнее"
+        href={`/${id}`}
+      />
     </article>
   );
 }
