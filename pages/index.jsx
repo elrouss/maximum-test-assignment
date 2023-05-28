@@ -4,10 +4,12 @@ import Showcase from '../components/Showcase/Showcase';
 import { URLS } from '../utils/constants';
 
 export const getServerSideProps = async () => {
-  const { SHOWCASE, SELECTED_BRAND_NAME } = URLS;
+  const { SHOWCASE } = URLS;
 
   try {
-    const response = await fetch(`${SHOWCASE}${SELECTED_BRAND_NAME}`);
+    // Chery is a start point.
+    // Then we'll get dynamic values to see other cars while clicking on brand filters (see [brandName] -> [id])
+    const response = await fetch(`${SHOWCASE}Chery`);
     const data = await response.json();
 
     if (!data) {

@@ -44,7 +44,6 @@ function Showcase({ list }) {
       filterGroups;
 
     if (filterBrandCar.filters.includes(key)) {
-      URLS.SELECTED_BRAND_NAME = key;
       setSelectedBrandCar(key);
     }
 

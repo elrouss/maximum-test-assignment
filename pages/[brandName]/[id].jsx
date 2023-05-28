@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
-import CardInfo from '../components/CardInfo/CardInfo';
+import CardInfo from '../../components/CardInfo/CardInfo';
 
-import { URLS } from '../utils/constants';
+import { URLS } from '../../utils/constants';
 
 export const getServerSideProps = async (context) => {
-  const { id } = context.params;
-  const { SELECTED_BRAND_NAME, SHOWCASE } = URLS;
+  const { id, brandName } = context.params;
+  const { SHOWCASE } = URLS;
 
   try {
-    const response = await fetch(`${SHOWCASE}${SELECTED_BRAND_NAME}`);
+    const response = await fetch(`${SHOWCASE}${brandName}`);
     const data = await response.json();
 
     if (!data) {
@@ -27,10 +27,10 @@ export const getServerSideProps = async (context) => {
   }
 };
 
-function Info({ cars: { list }, id }) {
-  console.log(URLS.SELECTED_BRAND_NAME);
+function CarInfo({ cars: { list }, id }) {
   let car = {};
 
+  // eslint-disable-next-line array-callback-return
   list.find((item) => {
     if (item._id === id) {
       car = item;
@@ -44,4 +44,4 @@ function Info({ cars: { list }, id }) {
   );
 }
 
-export default Info;
+export default CarInfo;

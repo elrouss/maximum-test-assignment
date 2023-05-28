@@ -3,10 +3,9 @@ export const ROUTES = Object.freeze({
 });
 
 // In the end should be added a car's brand
-export const URLS = {
-  SELECTED_BRAND_NAME: 'Chery',
+export const URLS = Object.freeze({
   SHOWCASE: 'https://maximum.expert/api/stock-test?brand=',
-};
+});
 
 export const filterGroups = [
   {

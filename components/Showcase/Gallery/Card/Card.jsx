@@ -34,7 +34,7 @@ function Card({
       <ButtonPromo
         classSelector={styles.btnCard}
         text="Подробнее"
-        href={`/${id}`}
+        href={`/${brandName}/${id}`}
       />
     </article>
   );
