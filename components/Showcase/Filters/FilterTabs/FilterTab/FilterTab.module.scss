@@ -11,4 +11,8 @@
   line-height: 150%;
 
   @extend %btn-filter;
+
+  &Selected {
+    background-color: $color-element-active;
+  }
 }

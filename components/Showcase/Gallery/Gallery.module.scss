@@ -1,7 +1,17 @@
+@import '../../../styles/variables/fonts.scss';
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(440px, auto));
   gap: 44px 42px;
   justify-items: center;
   max-width: 922px;
+
+  &NotFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: $font-size-addition;
+  }
 }

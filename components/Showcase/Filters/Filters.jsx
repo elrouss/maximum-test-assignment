@@ -1,51 +1,44 @@
+import PropTypes from 'prop-types';
+
+import { filterGroups } from '../../../utils/constants';
+
+import FilterTabs from './FilterTabs/FilterTabs';
+
 import styles from './Filters.module.scss';
 
-import FiltersGroup from './FilterTabs/FilterTabs';
-
-function Filters() {
-  const filterGroups = [
-    {
-      name: 'Бренд',
-      filters: ['Chery', 'Haval', 'Geely', 'Exeed', 'Audi', 'Kia', 'Hyundai'],
-    },
-    {
-      name: 'Объем двигателя',
-      filters: ['1,5 л.', '1,6 л.', '2,0 л.'],
-    },
-    {
-      name: 'Комплектация',
-      filters: [
-        'Action',
-        'Techno',
-        'Travel',
-        'Luxury',
-        'Cosmo',
-        'Trek',
-        'Comfort',
-        'Family',
-        'Prestige',
-        'Elite',
-        'Dreamline',
-        'Speedline',
-        'Ultimate',
-      ],
-    },
-  ];
+function Filters({ onFilter, onSelectedFilters }) {
+  const resetFilter = () => {
+    onSelectedFilters({
+      engineCapacity: [],
+      equipmentName: [],
+    });
+  };
 
   return (
     <div className={styles.filters}>
       {filterGroups.map(({ name, filters }) => (
-        <FiltersGroup key={name} heading={name} filters={filters} />
+        <FilterTabs
+          key={name}
+          heading={name}
+          filters={filters}
+          onFilter={onFilter}
+        />
       ))}
       <button
         className={styles.btnReset}
         type="button"
-        aria-label="Сбросить все фильтры, кроме первого по бренду"
+        aria-label="Сбросить фильтры поиска"
+        onClick={() => resetFilter()}
       >
         Сбросить фильтр
       </button>
     </div>
   );
 }
+
+Filters.propTypes = {
+  onFilter: PropTypes.func.isRequired,
+  onSelectedFilters: PropTypes.func.isRequired,
+};
 
 export default Filters;

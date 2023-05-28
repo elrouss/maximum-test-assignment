@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Image from 'next/image';
 import iconGuarantee from '../../public/assets/icons/icon_legal-guarantee.svg';
 import iconProductionYear from '../../public/assets/icons/icon_car-release.svg';

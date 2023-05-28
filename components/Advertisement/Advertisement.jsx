@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import ButtonPromo from '../ButtonPromo/ButtonPromo';
+import { ButtonPromo } from '../ButtonPromo/ButtonPromo';
 
 import advertisementImg from '../../public/assets/images/advertisement.png';
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import CardInfo from '../components/CardInfo/CardInfo';
 
 import { URLS } from '../utils/constants';
@@ -5,18 +6,24 @@ import { URLS } from '../utils/constants';
 export const getServerSideProps = async (context) => {
   const { id } = context.params;
 
-  const response = await fetch(`${URLS.SHOWCASE}Chery`);
-  const data = await response.json();
+  try {
+    const response = await fetch(`${URLS.SHOWCASE}Chery`);
+    const data = await response.json();
 
-  if (!data) {
+    if (!data) {
+      return {
+        notFound: true,
+      };
+    }
+
     return {
-      notFound: true,
+      props: { cars: data, id },
     };
+  } catch (err) {
+    return console.error(
+      `Ошибка в процессе перехода на страницу с подробной информацией об автомобиле: ${err}`
+    );
   }
-
-  return {
-    props: { cars: data, id },
-  };
 };
 
 function Info({ cars: { list }, id }) {

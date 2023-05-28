@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
 
-import styles from './FilterTabs.module.scss';
-
 import FilterTab from './FilterTab/FilterTab';
 
-function FiltersGroup({ heading, filters }) {
+import styles from './FilterTabs.module.scss';
+
+function FilterTabs({ heading, filters, onFilter }) {
   return (
     <div className={styles.filterGroup}>
       <h3 className={styles.heading}>{heading}</h3>
       <ul className={styles.filterTabs}>
         {filters.map((filter) => (
           <li>
-            <FilterTab key={filter} name={filter} />
+            <FilterTab key={filter} name={filter} onFilter={onFilter} />
           </li>
         ))}
       </ul>
@@ -19,9 +19,10 @@ function FiltersGroup({ heading, filters }) {
   );
 }
 
-FiltersGroup.propTypes = {
+FilterTabs.propTypes = {
   heading: PropTypes.string.isRequired,
   filters: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onFilter: PropTypes.func.isRequired,
 };
 
-export default FiltersGroup;
+export default FilterTabs;
