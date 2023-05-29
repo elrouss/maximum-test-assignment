@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-
+/* eslint-disable react/prop-types */
 import Head from 'next/head';
 import Layout from '../components/Layout/Layout';
 
@@ -7,8 +6,6 @@ import 'normalize.css';
 import '../styles/globals.scss';
 
 function App({ Component, pageProps }) {
-  // TODO: fix display of favicon
-
   return (
     <>
       <Head>
@@ -26,24 +23,6 @@ function App({ Component, pageProps }) {
           name="keywords"
           content="Максимум, автомобили, Санкт-Петербург, Питер"
         />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="../public/assets/favicon/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="../public/assets/favicon/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="../public/assets/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="../public/assets/favicon/site.webmanifest" />
       </Head>
       <Layout>
         <Component {...pageProps} />
@@ -51,15 +30,5 @@ function App({ Component, pageProps }) {
     </>
   );
 }
-
-App.propTypes = {
-  Component: PropTypes.func,
-  pageProps: PropTypes.element,
-};
-
-App.defaultProps = {
-  Component: PropTypes.null,
-  pageProps: PropTypes.undefined,
-};
 
 export default App;

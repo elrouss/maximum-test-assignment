@@ -17,6 +17,10 @@
 
 .heading {
   @include font($size: $font-size-addition, $letter-spacing: 0.06rem);
+
+  @media screen and (max-width: calc($media-desktop-s - 1px)) {
+    display: none;
+  }
 }
 
 .filterTabs {

@@ -7,7 +7,6 @@ import styles from './Gallery.module.scss';
 
 function Gallery({ cars, selectedFilters, isLoading }) {
   const [carsFiltered, setCarsFiltered] = useState(cars);
-  console.log(isLoading);
 
   useEffect(() => {
     const res = [];

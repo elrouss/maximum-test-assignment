@@ -1,14 +1,11 @@
 import PropTypes from 'prop-types';
 import FilterTab from './FilterTab/FilterTab';
-import useWindowDimensions from '../../../../hooks/useWindowDimensions';
 import styles from './FilterTabs.module.scss';
 
 function FilterTabs({ heading, filters, onFilter }) {
-  const isBigScreenDevice = useWindowDimensions() >= 1024;
-
   return (
     <div className={styles.filterGroup}>
-      {isBigScreenDevice && <h3 className={styles.heading}>{heading}</h3>}
+      <h3 className={styles.heading}>{heading}</h3>
       <ul className={styles.filterTabs}>
         {filters.map((filter) => (
           <li>

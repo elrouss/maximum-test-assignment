@@ -33,16 +33,14 @@ function Filters({ onFilter, onSelectedFilters }) {
   return (
     <div className={styles.filters}>
       {renderFilterTabs()}
-      {isBigScreenDevice && (
-        <button
-          className={styles.btnReset}
-          type="button"
-          aria-label="Сбросить фильтры поиска"
-          onClick={() => resetFilter()}
-        >
-          Сбросить фильтр
-        </button>
-      )}
+      <button
+        className={styles.btnReset}
+        type="button"
+        aria-label="Сбросить фильтры поиска"
+        onClick={() => resetFilter()}
+      >
+        Сбросить фильтр
+      </button>
     </div>
   );
 }
