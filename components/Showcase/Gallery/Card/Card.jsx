@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 import Image from 'next/image';
-import Link from 'next/link';
-
-import ButtonPromo from '../../../../components/ButtonPromo/ButtonPromo';
+import { ButtonPromo } from '../../../ButtonPromo/ButtonPromo';
 
 import styles from './Card.module.scss';
 
@@ -33,7 +31,11 @@ function Card({
           ','
         )} / ${enginePower} Л.С. / ${engineTransmission}`}</p>
       </div>
-      <ButtonPromo text="Подробнее" href={`/${id}`} />
+      <ButtonPromo
+        classSelector={styles.btnCard}
+        text="Подробнее"
+        href={`/${brandName}/${id}`}
+      />
     </article>
   );
 }

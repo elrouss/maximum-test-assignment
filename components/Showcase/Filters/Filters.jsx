@@ -1,51 +1,60 @@
+import PropTypes from 'prop-types';
+import { filterBrandCar, filterGroups } from '../../../utils/constants';
+import FilterTabs from './FilterTabs/FilterTabs';
 import styles from './Filters.module.scss';
+import useWindowDimensions from '../../../hooks/useWindowDimensions';
 
-import FiltersGroup from './FilterTabs/FilterTabs';
+function Filters({ onFilter, onSelectedFilters }) {
+  const isBigScreenDevice = useWindowDimensions() >= 1024;
 
-function Filters() {
-  const filterGroups = [
-    {
-      name: 'Бренд',
-      filters: ['Chery', 'Haval', 'Geely', 'Exeed', 'Audi', 'Kia', 'Hyundai'],
-    },
-    {
-      name: 'Объем двигателя',
-      filters: ['1,5 л.', '1,6 л.', '2,0 л.'],
-    },
-    {
-      name: 'Комплектация',
-      filters: [
-        'Action',
-        'Techno',
-        'Travel',
-        'Luxury',
-        'Cosmo',
-        'Trek',
-        'Comfort',
-        'Family',
-        'Prestige',
-        'Elite',
-        'Dreamline',
-        'Speedline',
-        'Ultimate',
-      ],
-    },
-  ];
+  const resetFilter = () => {
+    onSelectedFilters({
+      engineCapacity: [],
+      equipmentName: [],
+    });
+  };
 
   return (
     <div className={styles.filters}>
-      {filterGroups.map(({ name, filters }) => (
-        <FiltersGroup key={name} heading={name} filters={filters} />
+      {filterBrandCar.map(({ name, filters }) => (
+        <FilterTabs
+          heading={name}
+          filters={filters}
+          onFilter={onFilter}
+          checkboxName="brand-car"
+          type="radio"
+        />
       ))}
-      <button
-        className={styles.btnReset}
-        type="button"
-        aria-label="Сбросить все фильтры, кроме первого по бренду"
-      >
-        Сбросить фильтр
-      </button>
+
+      {isBigScreenDevice && (
+        <form>
+          {filterGroups.map(({ name, filters }) => (
+            <FilterTabs
+              key={name}
+              heading={name}
+              filters={filters}
+              onFilter={onFilter}
+              type="checkbox"
+            />
+          ))}
+          <label htmlFor="test">
+            <input
+              className={styles.btnReset}
+              id="test"
+              type="reset"
+              value="Сбросить фильтр"
+              onClick={() => resetFilter()}
+            />
+          </label>
+        </form>
+      )}
     </div>
   );
 }
+
+Filters.propTypes = {
+  onFilter: PropTypes.func.isRequired,
+  onSelectedFilters: PropTypes.func.isRequired,
+};
 
 export default Filters;

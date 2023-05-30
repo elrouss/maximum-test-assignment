@@ -1,21 +1,33 @@
 import PropTypes from 'prop-types';
-
 import styles from './FilterTab.module.scss';
 
-function FilterBtn({ name }) {
+function FilterTab({ name, checkboxName, type, onFilter }) {
   return (
-    <button
-      className={styles.filterTab}
-      type="button"
-      aria-label={`Фильтрация карточек в галерее по типу: "${name}"`}
-    >
-      {name}
-    </button>
+    <>
+      <input
+        className={styles.customCheckbox}
+        id={name}
+        type={type}
+        name={checkboxName || ''}
+        defaultChecked={name === 'Chery'}
+        onChange={(evt) => onFilter(evt)}
+      />
+      <label className={styles.customLabel} htmlFor={name}>
+        {name}
+      </label>
+    </>
   );
 }
 
-FilterBtn.propTypes = {
+FilterTab.propTypes = {
   name: PropTypes.string.isRequired,
+  checkboxName: PropTypes.string,
+  type: PropTypes.string.isRequired,
+  onFilter: PropTypes.func.isRequired,
 };
 
-export default FilterBtn;
+FilterTab.defaultProps = {
+  checkboxName: '',
+};
+
+export default FilterTab;

@@ -1,5 +1,4 @@
 import Logo from '../Logo/Logo';
-
 import styles from './Header.module.scss';
 
 export default function Header() {
@@ -9,10 +8,7 @@ export default function Header() {
         <div className={styles.content}>
           <Logo />
           <div className={styles.line} />
-          <h1 className={styles.heading}>
-            Официальный дилер
-            <span className={styles.extraSpace}>Максимум</span>
-          </h1>
+          <h1 className={styles.heading}>Официальный дилер Максимум</h1>
         </div>
       </div>
     </header>

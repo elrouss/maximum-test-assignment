@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Scrollbar } from 'swiper';
 import Image from 'next/image';
@@ -20,7 +21,7 @@ function Slider({ images }) {
             src={url}
             width={876}
             height={719}
-            alt="test"
+            alt="Слайд с изображением автомобиля"
           />
         </SwiperSlide>
       ))}

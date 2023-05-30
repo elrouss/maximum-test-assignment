@@ -1,6 +1,6 @@
 @import '../../styles/variables/colors.scss';
 @import '../../styles/variables/fonts.scss';
-@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/media-queries.scss';
 @import '../../styles/mixins.scss';
 
 .btn {
@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: center;
   width: 440px;
-  height: 80px;
+  min-height: 80px;
 
   @include font($family: $font-family-tertiary, $size: $font-size-addition);
   line-height: 120%;
@@ -16,4 +16,15 @@
 
   background-color: $color-promo-primary;
   border-radius: 8px;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    min-height: 40px;
+
+    font-size: calc(
+      $font-size-addition-mobile + (14 + 14 * 0.7) * (100vw - $media-mobile-s) /
+        767
+    );
+
+    border-radius: 4px;
+  }
 }

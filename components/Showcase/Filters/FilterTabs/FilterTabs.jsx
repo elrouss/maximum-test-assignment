@@ -1,17 +1,21 @@
 import PropTypes from 'prop-types';
-
+import FilterTab from './FilterTab/FilterTab';
 import styles from './FilterTabs.module.scss';
 
-import FilterTab from './FilterTab/FilterTab';
-
-function FiltersGroup({ heading, filters }) {
+function FilterTabs({ heading, filters, onFilter, checkboxName, type }) {
   return (
     <div className={styles.filterGroup}>
       <h3 className={styles.heading}>{heading}</h3>
       <ul className={styles.filterTabs}>
         {filters.map((filter) => (
           <li>
-            <FilterTab key={filter} name={filter} />
+            <FilterTab
+              key={filter}
+              name={filter}
+              checkboxName={checkboxName}
+              type={type}
+              onFilter={onFilter}
+            />
           </li>
         ))}
       </ul>
@@ -19,9 +23,16 @@ function FiltersGroup({ heading, filters }) {
   );
 }
 
-FiltersGroup.propTypes = {
+FilterTabs.propTypes = {
   heading: PropTypes.string.isRequired,
   filters: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onFilter: PropTypes.func.isRequired,
+  checkboxName: PropTypes.string,
+  type: PropTypes.string.isRequired,
 };
 
-export default FiltersGroup;
+FilterTabs.defaultProps = {
+  checkboxName: '',
+};
+
+export default FilterTabs;

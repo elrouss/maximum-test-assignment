@@ -1,5 +1,6 @@
 @import './variables/colors.scss';
 @import './variables/fonts.scss';
+@import './variables/media-queries.scss';
 @import './variables/general.scss';
 @import './mixins.scss';
 
@@ -48,6 +49,15 @@ button {
 .wrapper {
   max-width: $wrapper-desktop;
   margin: 0 auto;
+
+  @media screen and (max-width: calc($media-desktop-l - 1px)) {
+    margin-right: calc(
+      12px + (207 + 207 * 0.7) * (100vw - $media-mobile-s) / 1919
+    );
+    margin-left: calc(
+      12px + (207 + 207 * 0.7) * (100vw - $media-mobile-s) / 1919
+    );
+  }
 }
 
 .swiper {

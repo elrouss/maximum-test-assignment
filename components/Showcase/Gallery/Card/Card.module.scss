@@ -1,25 +1,49 @@
 @import '../../../../styles/variables/colors.scss';
 @import '../../../../styles/variables/fonts.scss';
+@import '../../../../styles//variables/media-queries.scss';
 @import '../../../../styles/mixins.scss';
 
 .card {
   width: 440px;
+
+  @media screen and (max-width: calc($media-desktop-m - 1px)) {
+    width: calc(280px + (160 + 160 * 0.7) * (100vw - $media-mobile-s) / 1279);
+  }
 }
 
 .image {
   width: 100%;
   object-fit: cover;
+
+  @media screen and (max-width: calc($media-desktop-m - 1px)) {
+    height: calc(180px + (112 + 112 * 0.7) * (100vw - $media-mobile-s) / 1279);
+  }
 }
 
 .description {
   padding: 15px 0 28px;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    padding-bottom: 20px;
+  }
 }
 
 .heading,
 .subheading {
-  @include font($family: $font-family-secondary, $size: $font-size-heading-2, $letter-spacing: 0.12rem);
+  @include font(
+    $family: $font-family-secondary,
+    $size: $font-size-heading-2,
+    $letter-spacing: 0.12rem
+  );
   line-height: 140%;
   color: $color-main-1;
+
+  @media screen and (max-width: calc($media-desktop-s - 1px)) {
+    font-size: calc(
+      $font-size-main + (16 + 16 * 0.7) * (100vw - $media-mobile-s) / 1023
+    );
+    letter-spacing: 0.04rem
+  }
 }
 
 .details {
@@ -28,16 +52,16 @@
   @include font($size: $font-size-addition);
   line-height: 140%;
   color: $color-element-inactive;
+
+  @media screen and (max-width: calc($media-desktop-s - 1px)) {
+    font-size: calc(
+      $font-size-addition-mobile + (14 + 14 * 0.7) * (100vw - $media-mobile-s) /
+        1023
+    );
+    letter-spacing: 0.02rem;
+  }
 }
 
-.btn {
+.btnCard {
   width: 100%;
-  padding: 23px 127px;
-
-  @include font($family: $font-family-tertiary, $size: $font-size-addition);
-  line-height: 120%;
-  color: $color-main-2;
-
-  background-color: $color-promo-primary;
-  border-radius: 8px;
 }

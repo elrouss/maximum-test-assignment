@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Image from 'next/image';
 import iconGuarantee from '../../public/assets/icons/icon_legal-guarantee.svg';
 import iconProductionYear from '../../public/assets/icons/icon_car-release.svg';
@@ -24,8 +25,6 @@ function CardInfo({
     photobank: { imgs },
   },
 }) {
-  // TODO: добавить пробелы у цены
-
   return (
     <>
       <section>
@@ -37,7 +36,9 @@ function CardInfo({
           <div className={styles.content}>
             <div>
               <ul className={styles.list}>
-                <li className={styles.price}>{`${autoPrice}`}</li>
+                <li className={styles.price}>{`${autoPrice
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}`}</li>
                 <li className={styles.guarantee}>
                   <Image
                     className={styles.guaranteeIcon}
