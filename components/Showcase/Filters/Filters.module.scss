@@ -18,6 +18,10 @@
 
   @extend %btn-filter;
 
+  @media screen and (max-width: calc($media-desktop-m - 1px)) {
+    font-size: 2rem;
+  }
+
   @media screen and (max-width: calc($media-desktop-s - 1px)) {
     display: none;
   }
