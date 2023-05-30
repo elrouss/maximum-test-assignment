@@ -39,7 +39,7 @@ function Showcase({ list, isBigScreenDevice }) {
   };
 
   const filterCars = ({ target }) => {
-    const key = target.id;
+    const key = target.value;
     const [filtersBrand] = filterBrandCar;
     const [filterEngineCapacity, filterEquipment] = filterGroups;
 
