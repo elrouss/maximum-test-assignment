@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 
-import { URLS, filterGroups } from '../../utils/constants';
+import { URLS, filterBrandCar, filterGroups } from '../../utils/constants';
 
 import Filters from './Filters/Filters';
 import Gallery from './Gallery/Gallery';
@@ -39,11 +39,11 @@ function Showcase({ list }) {
   };
 
   const filterCars = ({ target }) => {
-    const key = target.textContent;
-    const [filterBrandCar, filterEngineCapacity, filterEquipment] =
-      filterGroups;
+    const key = target.id;
+    const [filtersBrand] = filterBrandCar;
+    const [filterEngineCapacity, filterEquipment] = filterGroups;
 
-    if (filterBrandCar.filters.includes(key)) {
+    if (filtersBrand.filters.includes(key)) {
       setSelectedBrandCar(key);
     }
 

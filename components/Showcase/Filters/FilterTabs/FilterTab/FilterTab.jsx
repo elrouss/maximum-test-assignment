@@ -1,33 +1,33 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './FilterTab.module.scss';
 
-function FilterTab({ name, onFilter }) {
-  const [isFilterTabSelected, setFilterTabSelected] = useState(false);
-
-  const handleFilterTabSelection = ({ target }) =>
-    setFilterTabSelected(!target.classList.contains(styles.filterTabSelected));
-
+function FilterTab({ name, checkboxName, type, onFilter }) {
   return (
-    <button
-      className={`${styles.filterTab}${
-        (isFilterTabSelected && ` ${styles.filterTabSelected}`) || ''
-      }`}
-      type="button"
-      aria-label={`Фильтрация карточек в галерее по типу: "${name}"`}
-      onClick={(evt) => {
-        handleFilterTabSelection(evt);
-        onFilter(evt);
-      }}
-    >
-      {name}
-    </button>
+    <>
+      <input
+        className={styles.customCheckbox}
+        id={name}
+        type={type}
+        name={checkboxName || ''}
+        defaultChecked={name === 'Chery'}
+        onChange={(evt) => onFilter(evt)}
+      />
+      <label className={styles.customLabel} htmlFor={name}>
+        {name}
+      </label>
+    </>
   );
 }
 
 FilterTab.propTypes = {
   name: PropTypes.string.isRequired,
+  checkboxName: PropTypes.string,
+  type: PropTypes.string.isRequired,
   onFilter: PropTypes.func.isRequired,
+};
+
+FilterTab.defaultProps = {
+  checkboxName: '',
 };
 
 export default FilterTab;
