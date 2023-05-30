@@ -15,6 +15,7 @@ function Filters({ onFilter, onSelectedFilters, isBigScreenDevice }) {
     <div className={styles.filters}>
       {filterBrandCar.map(({ name, filters }) => (
         <FilterTabs
+          key={name}
           heading={name}
           filters={filters}
           onFilter={onFilter}
