@@ -44,7 +44,7 @@ function CardInfo({
                     className={styles.guaranteeIcon}
                     src={iconGuarantee}
                     width={26}
-                    height={36.75}
+                    height={37}
                     alt="Иконка в виде красного щитка с галочкой в центре"
                   />
                   Гарантия юр. чистоты

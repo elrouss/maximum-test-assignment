@@ -35,10 +35,10 @@ function Filters({ onFilter, onSelectedFilters, isBigScreenDevice }) {
               type="checkbox"
             />
           ))}
-          <label htmlFor="test">
+          <label htmlFor="resetBtn">
             <input
               className={styles.btnReset}
-              id="test"
+              id="resetBtn"
               type="reset"
               value="Сбросить фильтр"
               onClick={() => resetFilter()}
