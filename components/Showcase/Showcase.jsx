@@ -8,7 +8,7 @@ import Gallery from './Gallery/Gallery';
 
 import styles from './Showcase.module.scss';
 
-function Showcase({ list }) {
+function Showcase({ list, isBigScreenDevice }) {
   const [isLoading, setLoading] = useState(false);
   const [selectedBrandCar, setSelectedBrandCar] = useState('Chery');
   const [selectedFilters, setSelectedFilters] = useState({
@@ -91,6 +91,7 @@ function Showcase({ list }) {
           <Filters
             onFilter={filterCars}
             onSelectedFilters={setSelectedFilters}
+            isBigScreenDevice={isBigScreenDevice}
           />
           <Gallery
             cars={cars}

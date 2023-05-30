@@ -22,7 +22,7 @@
   user-select: none;
 
   @media screen and (max-width: calc($media-tablet - 1px)) {
-    padding: 3px 8px;
+    padding: 6px 8px;
 
     font-size: $font-family-main-mobile-s;
     color: rgba(154, 167, 173, 0.3);

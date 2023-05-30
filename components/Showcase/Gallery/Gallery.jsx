@@ -73,7 +73,11 @@ function Gallery({ cars, selectedFilters, isLoading }) {
 
   return (
     <div
-      className={carsFiltered.length ? styles.gallery : styles.galleryNotFound}
+      className={
+        carsFiltered.length && !isLoading
+          ? styles.gallery
+          : styles.galleryNotFound
+      }
     >
       {isLoading
         ? 'Подождите...'
