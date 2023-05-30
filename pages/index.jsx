@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import Showcase from '../components/Showcase/Showcase';
-
+import { useEffect, useState } from 'react';
 import { URLS } from '../utils/constants';
+import Showcase from '../components/Showcase/Showcase';
+import useWindowDimensions from '../hooks/useWindowDimensions';
 
 export const getServerSideProps = async () => {
   const { SHOWCASE } = URLS;
@@ -29,9 +30,16 @@ export const getServerSideProps = async () => {
 };
 
 export default function HomePage({ data: { list } }) {
+  const [isBigScreenDevice, setBigScreenDevice] = useState(false);
+  const screenWidth = useWindowDimensions() >= 1024;
+
+  useEffect(() => {
+    setBigScreenDevice(screenWidth);
+  }, [screenWidth]);
+
   return (
     <main>
-      <Showcase list={list} />
+      <Showcase list={list} isBigScreenDevice={isBigScreenDevice} />
     </main>
   );
 }

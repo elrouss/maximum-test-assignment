@@ -2,11 +2,8 @@ import PropTypes from 'prop-types';
 import { filterBrandCar, filterGroups } from '../../../utils/constants';
 import FilterTabs from './FilterTabs/FilterTabs';
 import styles from './Filters.module.scss';
-import useWindowDimensions from '../../../hooks/useWindowDimensions';
 
-function Filters({ onFilter, onSelectedFilters }) {
-  const isBigScreenDevice = useWindowDimensions() >= 1024;
-
+function Filters({ onFilter, onSelectedFilters, isBigScreenDevice }) {
   const resetFilter = () => {
     onSelectedFilters({
       engineCapacity: [],
@@ -55,6 +52,11 @@ function Filters({ onFilter, onSelectedFilters }) {
 Filters.propTypes = {
   onFilter: PropTypes.func.isRequired,
   onSelectedFilters: PropTypes.func.isRequired,
+  isBigScreenDevice: PropTypes.bool,
+};
+
+Filters.defaultProps = {
+  isBigScreenDevice: false,
 };
 
 export default Filters;
