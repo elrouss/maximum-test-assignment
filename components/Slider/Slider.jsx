@@ -14,9 +14,10 @@ function Slider({ images }) {
       }}
       modules={[Scrollbar]}
     >
-      {images.map(({ url }) => (
-        <SwiperSlide>
+      {images.map(({ _id, url }) => (
+        <SwiperSlide key={`slide_${_id}`}>
           <Image
+            key={_id}
             className={styles.slide}
             src={url}
             width={876}
