@@ -13,9 +13,14 @@ export function ButtonPromo({ classSelector, text, href }) {
 }
 
 ButtonPromo.propTypes = {
-  classSelector: PropTypes.string.isRequired,
+  classSelector: PropTypes.string,
   text: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
+};
+
+ButtonPromo.defaultProps = {
+  classSelector: '',
+  href: '#',
 };
 
 export default ButtonPromo;
