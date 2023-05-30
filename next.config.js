@@ -4,9 +4,8 @@ const nextConfig = {
   images: {
     // The next/image Image Optimization below is completely disabled
     // This avoids having to use a third-party provider to optimize the image when using next/export
-    images: {
-      unoptimized: true,
-    },
+    // The one to deploy is, e.x., Vercel
+    unoptimized: true,
     formats: ['image/webp'],
     remotePatterns: [
       {
