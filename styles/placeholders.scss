@@ -1,0 +1,14 @@
+@import './variables/colors.scss';
+
+%flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%btn-filter {
+  background-color: $color-main-2;
+
+  border: 2px solid $color-main-1;
+  border-radius: 8px;
+}

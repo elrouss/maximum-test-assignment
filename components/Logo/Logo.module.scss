@@ -1,0 +1,8 @@
+@import '../../styles/variables/media-queries.scss';
+
+.logo {
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    width: calc(111px + (43 + 43 * 0.7) * (100vw - $media-mobile-s) / 767);
+    height: calc(30px + (12 + 12 * 0.7) * (100vw - $media-mobile-s) / 767);
+  }
+}

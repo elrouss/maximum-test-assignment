@@ -1,0 +1,110 @@
+@import './variables/colors.scss';
+@import './variables/fonts.scss';
+@import './variables/media-queries.scss';
+@import './variables/general.scss';
+@import './mixins.scss';
+
+@include uploadFont($file: 'TacticSans-Medium', $family: $font-family-main);
+@include uploadFont($file: 'TacticSans-Black', $family: $font-family-secondary);
+@include uploadFont($file: 'TacticSans-Bold', $family: $font-family-tertiary);
+
+@import 'swiper/css';
+@import 'swiper/css/scrollbar';
+
+html {
+  @include font($size: 10px);
+
+  background-color: $color-main-2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+.wrapper {
+  max-width: $wrapper-desktop;
+  margin: 0 auto;
+
+  @media screen and (max-width: calc($media-desktop-l - 1px)) {
+    margin-right: calc(
+      12px + (207 + 207 * 0.7) * (100vw - $media-mobile-s) / 1919
+    );
+    margin-left: calc(
+      12px + (207 + 207 * 0.7) * (100vw - $media-mobile-s) / 1919
+    );
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 5px;
+  box-sizing: border-box;
+
+  font-size: 18px;
+  text-align: center;
+
+  background: $color-main-2;
+}
+
+.swiper-slide img {
+  display: flex;
+  align-self: start;
+  width: 100%;
+  height: 719px;
+
+  object-fit: cover;
+}
+
+.swiper-scrollbar.swiper-scrollbar-horizontal {
+  bottom: 0;
+
+  height: 4px;
+}
+
+.swiper-scrollbar-drag {
+  background: none;
+}
+
+.swiper-scrollbar-drag:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+
+  width: 40px;
+  height: 4px;
+  margin: 0;
+
+  background-color: $color-main-1;
+}

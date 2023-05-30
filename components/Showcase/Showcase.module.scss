@@ -1,0 +1,42 @@
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/fonts.scss';
+@import '../../styles/variables/media-queries.scss';
+@import '../../styles/mixins.scss';
+
+.section {
+  padding-top: 100px;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    padding-top: 30px;
+  }
+}
+
+.heading {
+  @include font(
+    $family: $font-family-secondary,
+    $size: $font-size-heading-1,
+    $letter-spacing: 0.12rem
+  );
+  line-height: 140%;
+  color: $color-main-1;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    padding-left: 7px;
+
+    font-size: calc(2rem + (20 + 20 * 0.7) * (100vw - $media-mobile-s) / 767);
+    line-height: 140%;
+    letter-spacing: 0.06rem;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 33.7% 62.3%;
+  justify-content: space-between;
+  padding: 63px 0;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    grid-template-columns: 1fr;
+    padding: 23px 0;
+  }
+}

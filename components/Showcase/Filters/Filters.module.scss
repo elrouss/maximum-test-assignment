@@ -1,0 +1,28 @@
+@import '../../../styles/variables/colors.scss';
+@import '../../../styles/variables/fonts.scss';
+@import '../../../styles/variables/media-queries.scss';
+@import '../../../styles/placeholders.scss';
+@import '../../../styles/mixins.scss';
+
+.filters {
+  max-width: 500px;
+}
+
+.btnReset {
+  width: 100%;
+  min-height: 80px;
+  margin-top: 40px;
+
+  @include font($family: $font-family-tertiary, $size: $font-size-addition);
+  line-height: 120%;
+
+  @extend %btn-filter;
+
+  @media screen and (max-width: calc($media-desktop-m - 1px)) {
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width: calc($media-desktop-s - 1px)) {
+    display: none;
+  }
+}

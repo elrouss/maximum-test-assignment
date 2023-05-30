@@ -1,0 +1,40 @@
+@import '../../../styles/variables/fonts.scss';
+@import '../../../styles/variables/media-queries.scss';
+@import '../../../styles/mixins.scss';
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(440px, auto));
+  gap: 44px 42px;
+  justify-items: center;
+  max-width: 922px;
+
+  @include font($size: $font-size-addition, $letter-spacing: 0.06rem);
+
+  @media screen and (max-width: calc($media-desktop-m - 1px)) {
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    padding-top: 30px;
+  }
+
+  &NotFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: $font-size-addition;
+    text-align: center;
+
+    @media screen and (max-width: calc($media-desktop-m - 1px)) {
+      font-size: calc(
+        1.4rem + (14 + 14 * 0.7) * (100vw - $media-mobile-s) / 1279
+      );
+    }
+  }
+}
+
+.preloader {
+  
+}

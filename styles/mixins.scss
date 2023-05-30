@@ -1,0 +1,41 @@
+@import './variables/colors.scss';
+@import './variables/fonts.scss';
+
+@mixin uploadFont(
+  $file,
+  $family: $font-family-main,
+  $weight: 400,
+  $format-1: 'woff2',
+  $format-2: 'woff',
+  $format-3: 'ttf',
+  $format-3-extension: 'truetype'
+) {
+  @font-face {
+    font-family: $family;
+    font-weight: $weight;
+    font-style: normal;
+    font-display: swap;
+    src: url('../public/assets/fonts/#{$file}.#{$format-1}')
+        format('#{$format-1}'),
+      url('../public/assets/fonts/#{$file}.#{$format-2}') format('#{$format-2}'),
+      url('../public/assets/fonts/#{$file}.#{$format-3}') format('#{$format-3}');
+  }
+}
+
+@mixin font(
+  $family: 'Tactic Sans Medium',
+  $style: normal,
+  $size,
+  $weight: 400,
+  $letter-spacing: 0.8px
+) {
+  font-family: ($family, 'Arial', 'Helvetica', sans-serif);
+  font-style: $style;
+  font-size: $size;
+  font-weight: $weight;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin border-bottom($width: 2px, $style: solid, $color) {
+  border-bottom: $width $style $color;
+}

@@ -1,0 +1,44 @@
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/fonts.scss';
+@import '../../styles/variables/media-queries.scss';
+@import '../../styles/mixins.scss';
+
+.header {
+  background-color: $color-main-1;
+}
+
+.content {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+  max-width: 520px;
+  padding: 20px 0;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    padding: 9px 0 13px;
+  }
+}
+
+.heading {
+  width: 100%;
+
+  @include font($size: $font-size-main);
+  line-height: 150%;
+  color: $color-main-2;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    font-size: $font-size-main-mobile;
+    line-height: 150%;
+    letter-spacing: 0.05rem;
+  }
+}
+
+.line {
+  height: 68px;
+
+  border-left: 2px solid $color-main-2;
+
+  @media screen and (max-width: calc($media-tablet - 1px)) {
+    height: 23px;
+  }
+}
