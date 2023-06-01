@@ -42,7 +42,7 @@
 <div align="right">(<a href="#summary">к оглавлению</a>)</div>
 
 <a name="installation"><h2>3. Установка и запуск приложения в локальном репозитории, эксплуатация</h2></a>
-1. `https://github.com/elrouss/maximum-test-assignment.git` - клонировать репозиторий на свое устройство (HTTPS)
+1. `git clone https://github.com/elrouss/maximum-test-assignment.git` - клонировать репозиторий на свое устройство (HTTPS)
 2. `npm i` - установить зависимости
 3. `npm run dev` - запустить приложение (открыть в браузере по адресу `http://localhost:3000/`)
 
